@@ -4,7 +4,7 @@
 .search{
   background-color: $color-ffffff;
   width: 100%;
-  height: 500px;
+  height: 470px;
   padding-top: 30px;
   padding-bottom: 15px;
   overflow: scroll;
@@ -41,8 +41,10 @@
 .result{
   background-color: $color-dfe6e9;
   width: 100%;
+  height: calc(100vh - 120px);
   padding-top: 20px;
   padding-bottom: 20px;
+  overflow: scroll;
   
   a{
     color: black;
