@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      movie: 動画情報
+    attributes:
+      movie:
+        url: 動画のURL
