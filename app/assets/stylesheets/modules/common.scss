@@ -5,6 +5,7 @@ $color-1289A7 : #1289A7;
 $color-9ca24 : #f9ca24;
 $color-ffffff : #ffffff;
 $color-dfe6e9 : #dfe6e9;
+$color-eb4d4b : #eb4d4b;
 
 // フォーム（検索、登録、編集）
 @mixin movie_form($width, $height){
@@ -47,4 +48,26 @@ $color-dfe6e9 : #dfe6e9;
       border-bottom: none;
     }
   }
+}
+
+// 各ページのサブミットボタン（背景色とフォントカラーを指定）
+@mixin submit_button($back_color, $font_color) {
+
+  // ボタン配置用のdivのスタイル
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  // ボタンデザイン
+  &__btn{
+    -webkit-appearance: none;
+    background-color: $back_color;
+    color: $font_color;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
 }

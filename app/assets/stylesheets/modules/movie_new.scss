@@ -38,21 +38,7 @@
 
     // 登録ボタン用div
     &__submit{
-      width: 200px;
-      margin: 0 auto;
-      margin-top: 30px;
-
-      // 登録ボタン
-      &__btn{
-        -webkit-appearance: none;
-        background-color: $color-9ca24;
-        color: $color-ffffff;
-        border: none;
-        height: 50px;
-        width: 200px;
-        font-size: 20px;
-        text-align: center;
-      }
+      @include submit_button($color-9ca24, $color-ffffff);
     }
   }
 }
