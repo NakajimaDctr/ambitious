@@ -11,12 +11,11 @@
 
   // フォーム
   &__form{
-    @include movie_form();
-    width: 800px;
-    height: 420px;
+    @include movie_form(800px, 420px);
+
     // 入力用テーブル
     &__table{
-      @include round_table()
+      @include round_table(40px, 150px, 40px, 650px);
     }
     // 検索ボタン用div
     &__submit{
@@ -79,55 +78,6 @@
         height: 45px;
         width: 270px;
         border-bottom: solid 1px $color-dfe6e9;
-      }
-    }
-  }
-}
-
-// 新規登録画面
-.new{
-  background-color: $color-ffffff;
-  width: 100%;
-  height: calc(100vh - 70px);
-  padding-top: 30px;
-
-  // サムネ表示エリア
-  &__thumbnail{
-    width: 320px;
-    height: 180px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-
-    border: blue solid 1px;
-    text-align: center;
-    line-height: 180px;
-  }
-
-  // フォーム
-  &__form{
-    @include movie_form();
-    
-    // 入力用テーブル
-    &__table{
-      @include round_table()
-    }
-
-    // 登録ボタン用div
-    &__submit{
-      width: 200px;
-      margin: 0 auto;
-      margin-top: 15px;
-
-      // 登録ボタン
-      &__btn{
-        -webkit-appearance: none;
-        background-color: $color-9ca24;
-        color: $color-ffffff;
-        border: none;
-        height: 50px;
-        width: 200px;
-        font-size: 20px;
-        text-align: center;
       }
     }
   }
