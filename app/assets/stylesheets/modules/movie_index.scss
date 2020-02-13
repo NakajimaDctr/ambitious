@@ -44,11 +44,17 @@
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+  
+  a{
+    color: black;
+  }
 
   // 動画情報１件分
   &__movie{
-    width: 1200px;
+    width: 1350px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0 auto;
     margin-bottom: 20px;
     padding: 10px;
@@ -58,12 +64,10 @@
     &__thumbnail{
       height: 180px;
       width: 320px;
-      margin-right: 15px;
 
       border: 2px solid black;
       text-align: center;
       line-height: 180px;
-
     }
 
     // 動画情報用テーブル
@@ -79,6 +83,17 @@
         width: 270px;
         border-bottom: solid 1px $color-dfe6e9;
       }
+    }
+
+    // 編集リンクボタン
+    &__edit-button{
+      width: 120px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      background-color: #4834d4;
+      color: $color-ffffff;
     }
   }
 }
