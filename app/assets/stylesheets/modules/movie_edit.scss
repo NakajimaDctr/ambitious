@@ -23,12 +23,6 @@
   &__form{
     @include movie_form(1200px, 420px);
     
-    // 動画URL入力欄
-    &__url{
-      // thの高さ、幅、tdの高さ、幅
-      @include round_table(40px, 300px, 40px, 700px);
-      margin: 0 auto;
-    }
     // 入力用テーブル
     &__table{
       // thの高さ、幅、tdの高さ、幅
