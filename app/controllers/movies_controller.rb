@@ -35,7 +35,15 @@ class MoviesController < ApplicationController
       # 更新失敗したら更新画面へ遷移
       render :edit
     end
+  end
 
+  def destroy
+
+    movie = Movie.find(params[:id])
+    # 削除
+    movie.destroy
+    # indexへ遷移
+    redirect_to root_path
   end
 
   def show

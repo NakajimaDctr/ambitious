@@ -79,6 +79,9 @@
 
       // 削除ボタンエリア
       &__delete{
+        &__link{
+          display: inline-block;
+        }
         @include submit_button($color-eb4d4b, $color-ffffff);
       }
     }
