@@ -69,3 +69,4 @@ gem "font-awesome-sass"
 gem "rename"
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+gem 'jquery-rails'
