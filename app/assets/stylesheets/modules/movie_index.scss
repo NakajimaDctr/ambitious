@@ -1,51 +1,4 @@
-// 色定義
-$color-1289A7 : #1289A7;
-$color-9ca24 : #f9ca24;
-$color-ffffff : #ffffff;
-$color-dfe6e9 : #dfe6e9;
-
-// フォーム（検索、登録、編集）
-@mixin movie_form(){
-  margin: 0 auto;
-  background-color: $color-ffffff;
-  width: 800px;
-  height: 420px;
-}
-
-// 角丸テーブル（動画情報入力用）
-@mixin round_table(){
-  border: 3px solid $color-1289A7;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 10px;
-  tr{
-    th{
-      width: 150px;
-      height: 40px;
-      padding-left: 10px;
-      background-color: $color-1289A7;
-      color: $color-ffffff;
-      border-bottom: 1px solid $color-dfe6e9;
-      border-right: 3px solid $color-1289A7;
-    }
-    td{
-      width: 650px;
-      height: 40px;
-      background-color: $color-ffffff;
-      border-bottom: 1px solid $color-dfe6e9;
-    }
-    &:first-child td{
-      border-radius: 0 10px 0 0;
-    }
-    &:last-child th{
-      border-bottom: none;
-    }
-    &:last-child td{
-      border-radius: 0 0 10px 0;
-      border-bottom: none;
-    }
-  }
-}
+@import "common";
 
 // 検索条件入力エリア
 .search{
@@ -59,6 +12,8 @@ $color-dfe6e9 : #dfe6e9;
   // フォーム
   &__form{
     @include movie_form();
+    width: 800px;
+    height: 420px;
     // 入力用テーブル
     &__table{
       @include round_table()
@@ -100,7 +55,6 @@ $color-dfe6e9 : #dfe6e9;
     padding: 10px;
     background-color: $color-ffffff;
     
-
     // サムネイル表示エリア
     &__thumbnail{
       height: 180px;
@@ -115,26 +69,19 @@ $color-dfe6e9 : #dfe6e9;
 
     // 動画情報用テーブル
     &__information{
-      
-      
       th{
         height: 45px;
         width: 150px;
         text-align: end;
         padding-right: 15px;
-
-
       }
       td{
         height: 45px;
         width: 270px;
         border-bottom: solid 1px $color-dfe6e9;
       }
-
     }
-
   }
-
 }
 
 // 新規登録画面
@@ -143,6 +90,18 @@ $color-dfe6e9 : #dfe6e9;
   width: 100%;
   height: calc(100vh - 70px);
   padding-top: 30px;
+
+  // サムネ表示エリア
+  &__thumbnail{
+    width: 320px;
+    height: 180px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    border: blue solid 1px;
+    text-align: center;
+    line-height: 180px;
+  }
 
   // フォーム
   &__form{
