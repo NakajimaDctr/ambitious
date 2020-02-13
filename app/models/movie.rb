@@ -1,3 +1,4 @@
 class Movie < ApplicationRecord
-  belongs_to :list
+  # 動画URLは必須
+  validates :url, presence: true
 end
