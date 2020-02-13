@@ -1,0 +1,48 @@
+// 変数を置いておく
+
+// 色定義
+$color-1289A7 : #1289A7;
+$color-9ca24 : #f9ca24;
+$color-ffffff : #ffffff;
+$color-dfe6e9 : #dfe6e9;
+
+// フォーム（検索、登録、編集）
+@mixin movie_form(){
+  margin: 0 auto;
+  background-color: $color-ffffff;
+}
+
+// 角丸テーブル（動画情報入力用）
+@mixin round_table(){
+  border: 3px solid $color-1289A7;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  tr{
+    th{
+      width: 150px;
+      height: 40px;
+      padding-left: 10px;
+      background-color: $color-1289A7;
+      color: $color-ffffff;
+      border-bottom: 1px solid $color-dfe6e9;
+      border-right: 3px solid $color-1289A7;
+    }
+    td{
+      width: 650px;
+      height: 40px;
+      background-color: $color-ffffff;
+      border-bottom: 1px solid $color-dfe6e9;
+    }
+    &:first-child td{
+      border-radius: 0 10px 0 0;
+    }
+    &:last-child th{
+      border-bottom: none;
+    }
+    &:last-child td{
+      border-radius: 0 0 10px 0;
+      border-bottom: none;
+    }
+  }
+}
