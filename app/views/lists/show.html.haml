@@ -1,0 +1,13 @@
+= link_to "リストを削除する", list_path(@list.id), method: :delete
+%br/
+%br/
+%h1= @list.name
+%br/
+= link_to "動画追加", new_list_movie_path(@list.id)
+%br/
+%br/
+%h1 動画一覧
+.contents.row
+  - @movies.each do |movie|
+    %div
+      = link_to movie.title, list_movie_path(@list.id, movie.id)

@@ -1,0 +1,34 @@
+.search
+  %form.search__form{:action => "#"}
+    %table.search__form__table
+      %tr
+        %th 区分
+        %td
+      %tr
+        %th 種目
+        %td
+      %tr
+        %th 学生／プロ・アマ
+        %td
+      %tr
+        %th 演者名
+        %td
+      %tr
+        %th 曲タイトル
+        %td
+      %tr
+        %th アーティスト
+        %td
+      %tr
+        %th 出演・受賞
+        %td
+      %tr
+        %th 
+        %td
+    .search__form__submit
+      = button_tag type: "submit", class: "search__form__submit__btn" do
+        = icon("fas", "search", class: "search__form__submit__btn__search-icon")
+        検索
+
+.result
+  

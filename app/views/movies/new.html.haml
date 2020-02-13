@@ -1,0 +1,34 @@
+.new
+  %form.new__form{:action => "#"}
+    %table.new__form__table
+      %tr
+        %th 動画URL
+        %td
+      %tr
+        %th 区分
+        %td
+      %tr
+        %th 種目
+        %td
+      %tr
+        %th 学生／プロ・アマ
+        %td
+      %tr
+        %th 演者名
+        %td
+      %tr
+        %th 曲タイトル
+        %td
+      %tr
+        %th アーティスト
+        %td
+      %tr
+        %th 出演・受賞
+        %td
+      %tr
+        %th タグ
+        %td
+    .new__form__submit
+      = button_tag type: "submit", class: "new__form__submit__btn" do
+        = icon("fas", "plus", class: "header__add-movie__btn__plus-icon")
+        登録

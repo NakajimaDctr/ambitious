@@ -1,0 +1,6 @@
+.new-list-form
+  %h2 リストを作成する
+  %br/
+  = form_with(model: @list, local: true) do |form|
+    = form.text_field :name, placeholder: "リスト名", class: "listname-input"
+    = form.submit "リスト作成", class: "new-list-submit"
