@@ -1,0 +1,27 @@
+@import "common";
+
+// １件詳細表示画面
+.show{
+  background-color: $color-ffffff;
+  width: 100%;
+  height: calc(100vh - 70px);
+  padding-top: 30px;
+
+  // サムネ表示エリア
+  &__thumbnail{
+    width: 320px;
+    height: 180px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    border: blue solid 1px;
+    text-align: center;
+    line-height: 180px;
+  } 
+  // 表示用テーブル
+  &__table{
+    // thの高さ、幅、tdの高さ、幅
+    @include round_table(40px, 150px, 40px, 350px);
+    margin: 0 auto;
+  }
+  }
