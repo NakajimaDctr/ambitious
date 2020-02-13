@@ -40,7 +40,7 @@
           タグ
         %td
           = movie.tags
-  = link_to edit_movie_path(1) do
+  = link_to edit_movie_path(movie.id) do
     .result__movie__edit-button
       = icon("far", "edit", class: ".result__movie__edit-button__icon")
       編集

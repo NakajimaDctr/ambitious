@@ -1,31 +1,65 @@
 .edit
   .edit__thumbnail
     ここにサムネイルが表示される予定
-  %form.edit__form{:action => "#"}
+  = form_for @movie, { class: 'new__form' } do |f|
+    
+    // エラーメッセージ
+
     %table.edit__form__table
       %tr
-        %th 動画URL
+        %th
+          動画URL
         %td{colspan: "3"}
+          = f.text_field :url
       %tr
-        %th 区分
+        %th 
+          区分
+        %td.category
+          %label
+            = f.radio_button :category, "ステージ"
+            ステージ
+          %label
+            = f.radio_button :category, "クロース"
+            クロース
+          %label
+            = f.radio_button :category, "サロン"
+            サロン
+        %th
+          曲タイトル
         %td
-        %th 曲タイトル
-        %td
+          = f.text_field :music_title
       %tr
-        %th 種目・アイテム
+        %th
+          種目・アイテム
         %td
-        %th アーティスト
+          = f.text_field :item
+        %th
+          アーティスト
         %td
+          = f.text_field :music_artist
       %tr
-        %th 学生／プロ・アマ
+        %th
+          学生／プロ・アマ
+        %td.performer_status
+          %label
+            = f.radio_button :performer_status, "学生"
+            学生
+          %label
+            = f.radio_button :performer_status, "プロ・アマ"
+            プロ・アマ
+        %th
+          出演・受賞
         %td
-        %th 出演・受賞
-        %td
+          = f.text_field :performed_at
       %tr
-        %th 演者名
+        %th
+          演者名
         %td
-        %th タグ
+          = f.text_field :performer_name
+        %th
+          タグ
         %td
+          = f.text_field :tags
     .edit__form__submits
       .edit__form__submits__update
         = button_tag type: "submit", class: "edit__form__submits__update__btn" do
