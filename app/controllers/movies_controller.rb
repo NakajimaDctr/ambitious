@@ -9,6 +9,10 @@ class MoviesController < ApplicationController
     redirect_to list_path(movie.list_id)
   end
 
+  def edit
+    
+  end
+
   def show
     @movie = Movie.find(params[:id])
   end

@@ -1,0 +1,59 @@
+@import "common";
+
+// 新規登録画面
+.edit{
+  background-color: $color-ffffff;
+  width: 100%;
+  height: calc(100vh - 70px);
+  padding-top: 30px;
+
+  // サムネ表示エリア
+  &__thumbnail{
+    width: 320px;
+    height: 180px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    border: blue solid 1px;
+    text-align: center;
+    line-height: 180px;
+  }
+
+  // フォーム
+  &__form{
+    @include movie_form(1200px, 420px);
+    
+    // 動画URL入力欄
+    &__url{
+      // thの高さ、幅、tdの高さ、幅
+      @include round_table(40px, 300px, 40px, 700px);
+      margin: 0 auto;
+    }
+    // 入力用テーブル
+    &__table{
+      // thの高さ、幅、tdの高さ、幅
+      @include round_table(40px, 150px, 40px, 350px);
+      margin: 0 auto;
+    }
+
+    // 更新ボタンと削除ボタンを横並びにする
+    &__submits{
+      display: flex;
+      margin: 0 auto;
+      width: 700px;
+
+      // 更新ボタンエリア
+      &__update{
+        @include submit_button($color-9ca24, $color-ffffff);
+      }
+
+      // 削除ボタンエリア
+      &__delete{
+        @include submit_button($color-eb4d4b, $color-ffffff);
+      }
+
+
+      
+    }
+  }
+}
