@@ -6,8 +6,12 @@ class MoviesController < ApplicationController
 
 
   def create
-    movie = Movie.create(movie_params)
-    redirect_to list_path(movie.list_id)
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -19,12 +23,11 @@ class MoviesController < ApplicationController
   end
 
   def new
-    # @list = List.find(params[:list_id])
-    # @movie = Movie.new
+    @movie = Movie.new
   end
 
   private
   def movie_params
-    params.require(:movie).permit(:url, :title).merge(list_id: params[:list_id])
+    params.require(:movie).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags)
   end
 end
