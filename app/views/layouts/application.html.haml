@@ -28,4 +28,5 @@
         = link_to new_movie_path, class: "header__add-movie__btn" do
           = icon("fas", "plus", class: "header__add-movie__btn__plus-icon")
           動画を追加
-    = yield
+    .contents
+      = yield
