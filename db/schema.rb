@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_234602) do
+ActiveRecord::Schema.define(version: 2020_01_31_232547) do
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,11 +19,17 @@ ActiveRecord::Schema.define(version: 2020_01_31_234602) do
   end
 
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "list_id"
     t.text "url"
+    t.string "category"
+    t.string "item"
+    t.string "performer_status"
+    t.string "performer_name"
+    t.string "music_title"
+    t.string "music_artist"
+    t.text "performed_at"
+    t.text "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "title"
   end
 
 end
