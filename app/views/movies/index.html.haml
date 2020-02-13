@@ -29,6 +29,8 @@
       = button_tag type: "submit", class: "search__form__submit__btn" do
         = icon("fas", "search", class: "search__form__submit__btn__search-icon")
         検索
+.accordion-search
+  = icon("fas", "chevron-up")
 
 .result
   = render @movies
