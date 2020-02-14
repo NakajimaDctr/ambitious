@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @movies = current_user.movies
   end
 
   def new
@@ -50,10 +50,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
-  
-
   private
   def movie_params
-    params.require(:movie).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags)
+    params.require(:movie).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags).merge(user_id: current_user.id)
   end
 end
