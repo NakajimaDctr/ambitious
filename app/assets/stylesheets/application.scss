@@ -14,6 +14,7 @@
 $color-1289A7 : #1289A7;
 $color-9ca24 : #f9ca24;
 $color-ffffff : #ffffff;
+$color-dfe6e9 : #dfe6e9;
 
 * {
   box-sizing: border-box;
@@ -75,9 +76,11 @@ a {
       }
       &__sign-out{
         display: inline-block;
+        padding: 0 5px;
         font-size: 15px;
         color: $color-ffffff;
         line-height: 40px;
+        border: 2px solid $color-dfe6e9;
       }
     }
   }
