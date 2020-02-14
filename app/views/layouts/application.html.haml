@@ -24,6 +24,24 @@
       .header__app-name
         = link_to root_path, class: "header__app-name__index-link" do
           動画かんりするやつ
+      .header__internal
+        .header__internal__screen-name
+          - if current_page?(root_path)
+            動画一覧
+          - if current_page?(new_movie_path)
+            新規登録
+          - if @movie
+            - if current_page?(edit_movie_path(@movie.id))
+              動画情報の編集・削除
+            - if current_page?(movie_path(@movie.id))
+              動画情報の詳細
+          
+
+        .header__internal__user-name
+          - if user_signed_in?
+            = link_to edit_user_path(current_user) do
+              = icon("fas", "user", class: "header__user-name__icon")
+              = current_user.name
       .header__add-movie
         = link_to new_movie_path, class: "header__add-movie__btn" do
           = icon("fas", "plus", class: "header__add-movie__btn__plus-icon")
