@@ -6,6 +6,9 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/user";
+
+
 
 // 色定義
 $color-1289A7 : #1289A7;
@@ -40,6 +43,43 @@ a {
       color: $color-ffffff;;
     }
   }
+  &__internal{
+    height: 40px;
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+
+    &__screen-name{
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      color: $color-ffffff;
+
+
+    }
+
+    &__user{
+      width: 200px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+
+      &__name{
+        font-size: 20px;
+        color: $color-ffffff;
+        &__icon{
+          margin-right: 5px;
+        }
+      }
+      &__sign-out{
+        font-size: 12px;
+        color: $color-ffffff;
+        line-height: 40px;
+      }
+    }
+  }
+  
+
 
   // 登録ボタン
   &__add-movie{
