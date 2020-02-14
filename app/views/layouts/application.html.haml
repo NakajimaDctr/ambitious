@@ -38,10 +38,11 @@
           
         .header__internal__user
           - if user_signed_in?
-            = link_to edit_user_path(current_user), class: "header__internal__user__name"do
+            = link_to edit_user_path(current_user), class: "header__internal__user__name" do
               = icon("fas", "user", class: "header__user__icon")
               = current_user.name
-            = link_to "ログアウト", destroy_user_session_path, class: "header__internal__user__sign-out", method: :delete
+            = link_to destroy_user_session_path, class: "header__internal__user__sign-out", method: :delete do
+              ログアウト
 
       .header__add-movie
         - if user_signed_in?

@@ -54,25 +54,28 @@ a {
       line-height: 40px;
       font-size: 20px;
       color: $color-ffffff;
-
-
     }
 
     &__user{
-      width: 200px;
       text-align: center;
       height: 40px;
       line-height: 40px;
+      display: flex;
+      justify-content: space-between;
+      
 
       &__name{
+        display: inline-block;
         font-size: 20px;
         color: $color-ffffff;
+        margin-right: 10px;
         &__icon{
           margin-right: 5px;
         }
       }
       &__sign-out{
-        font-size: 12px;
+        display: inline-block;
+        font-size: 15px;
         color: $color-ffffff;
         line-height: 40px;
       }
