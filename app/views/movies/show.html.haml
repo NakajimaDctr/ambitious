@@ -3,25 +3,43 @@
     ここにサムネイルが表示される予定
   %table.show__table
     %tr
-      %th 動画URL
+      %th
+        動画URL
       %td{colspan: "3"}
+        = @movie.url
     %tr
-      %th 区分
+      %th
+        区分
       %td
-      %th 曲タイトル
+        = @movie.category
+      %th
+        曲タイトル
       %td
+        = @movie.music_title
     %tr
-      %th 種目・アイテム
+      %th
+        種目・アイテム
       %td
-      %th アーティスト
+        = @movie.item
+      %th
+        アーティスト
       %td
+        = @movie.music_artist
     %tr
-      %th 学生／プロ・アマ
+      %th
+        学生／プロ・アマ
       %td
-      %th 出演・受賞
+        = @movie.performer_status
+      %th
+        出演・受賞
       %td
+        = @movie.performed_at
     %tr
-      %th 演者名
+      %th
+        演者名
       %td
-      %th タグ
+        = @movie.performer_name
+      %th
+        タグ
       %td
+        = @movie.tags

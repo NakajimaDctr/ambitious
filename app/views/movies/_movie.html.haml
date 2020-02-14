@@ -2,7 +2,7 @@
   .result__movie__thumbnail
     /%iframe#player{frameborder: "0", height:"390", src: "https://www.youtube.com/embed/iDWG3av03So", type: "text/html", width: "640"}
     サムネイルがここに入ります
-  = link_to movie_path(1) do
+  = link_to movie_path(movie.id) do
     %table.result__movie__information
       %tr
         %th

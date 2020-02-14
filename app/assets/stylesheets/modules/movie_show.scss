@@ -23,5 +23,11 @@
     // thの高さ、幅、tdの高さ、幅
     @include round_table(40px, 150px, 40px, 350px);
     margin: 0 auto;
+
+    td{
+      padding: 0 10px;
+      font-size: 18px;
+    }
+
   }
-  }
+}
