@@ -1,6 +1,5 @@
 class Movies::SearchesController < ApplicationController
   def index
-    binding.pry
     @movies = current_user.movies.search(search_params)
   end
 
