@@ -15,7 +15,10 @@
         %th
           学生／プロ・アマ
         %td
-          = text_field_tag :performer_status
+          =check_box_tag :performer_status_student
+          =label_tag :performer_status_student, "学生"
+          =check_box_tag :performer_status_proama
+          =label_tag :performer_status_proama, "プロ・アマ"
       %tr
         %th 
           演者名
