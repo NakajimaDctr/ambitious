@@ -14,7 +14,7 @@ class Movies::SearchesController < ApplicationController
       performer_status = "学生"
     elsif params[:performer_status_proama] == "1"
       binding.pry
-      performer_status = "プロ/アマ"
+      performer_status = "プロ・アマ"
     end
 
     params.permit(:category, :item, :performer_name, :music_title, :music_artist, :performed_at, :tags).merge(user_id: current_user.id, performer_status: performer_status)
