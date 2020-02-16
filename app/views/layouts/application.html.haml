@@ -26,15 +26,15 @@
           動画かんりするやつ
       .header__internal
         .header__internal__screen-name
-          - if current_page?(root_path)
-            動画一覧
-          - elsif current_page?(new_movie_path)
-            新規登録
-          - elsif @movie
-            - if current_page?(edit_movie_path(@movie))
-              動画情報の編集・削除
-            - elsif current_page?(movie_path(@movie))
-              動画情報の詳細
+          -# - if current_page?(root_path)
+          -#   動画一覧
+          -# - elsif current_page?(new_movie_path)
+          -#   新規登録
+          -# - elsif @movie
+          -#   - if current_page?(edit_movie_path(@movie))
+          -#     動画情報の編集・削除
+          -#   - elsif current_page?(movie_path(@movie))
+          -#     動画情報の詳細
           
         .header__internal__user
           - if user_signed_in?
