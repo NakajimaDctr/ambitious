@@ -8,8 +8,7 @@ class Movie < ApplicationRecord
 
     # ユーザーに紐づく動画情報を取得
     movies = Movie.where(user_id: params[:user_id])
-    # :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags
-
+    
     # 区分
     if params[:category].present?
       movies = movies.where(category: params[:category])
