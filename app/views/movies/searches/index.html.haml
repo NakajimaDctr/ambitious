@@ -5,7 +5,15 @@
         %th
           区分
         %td
-          = text_field_tag :category
+          = label_tag do
+            = radio_button_tag "category", "ステージ"
+            ステージ
+          = label_tag do
+            = radio_button_tag "category", "クロース"
+            クロース
+          = label_tag do
+            = radio_button_tag "category", "サロン"
+            サロン
       %tr
         %th
           種目
