@@ -72,6 +72,13 @@
         }
         @include submit_button($color-eb4d4b, $color-ffffff);
       }
+
+      &__back{
+        &__link{
+          display: inline-block;
+        }
+        @include submit_button($color-535c68, $color-ffffff);
+      }
     }
   }
 }
