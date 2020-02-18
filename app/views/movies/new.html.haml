@@ -65,7 +65,12 @@
           タグ
         %td
           = f.text_field :tags
-    .new__form__submit
-      = button_tag type: "submit", class: "new__form__submit__btn" do
-        = icon("fas", "plus", class: "new__form__submit__btn__plus-icon")
-        登録
+    .new__form__submits
+      .new__form__submits__create
+        = button_tag type: "submit", class: "new__form__submits__create__btn" do
+          = icon("fas", "plus", class: "new__form__submits__create__btn__plus-icon")
+          登録
+      .new__form__submits__back
+        = link_to root_path, class: "new__form__submits__back__btn" do
+          = icon("fas", "arrow-left", class: "new__form__submits__back__btn__icon")
+          戻る
