@@ -23,7 +23,8 @@ $(function(){
     // html作成
     var html = `<div class='result__movie'>
                   <div class='result__movie__thumbnail'>
-                    サムネイルがここに入ります
+                    <div id='player_${movie.id}'>
+                    </div>
                   </div>
                   <a href="/movies/${movie.id}">
                     <table class='result__movie__information'>
@@ -114,6 +115,9 @@ $(function(){
           appendMovie(movie);
         });
       }
+
+      // プレイヤー設置
+      createPlayers(movies);
     })
 
     // 検索失敗
@@ -135,4 +139,27 @@ $(function(){
     }
   })
 
+  
+
+  // 検索結果をもとにプレイヤーを設置する
+  function createPlayers(movies){
+
+    movies.forEach(function(movie, i){
+      // DB上の動画情報のid
+      let movieId = movie.id
+      // 挿入先となるdivのid
+      let playerId = "player_" + movieId;
+      // youtubeの動画ID
+      let videoId = movie.url.match(/v=.*/)[0].substring(2,13);
+
+      // プレイヤーの生成（１件）
+      player = new YT.Player(
+        playerId, { // 最初の引数に挿入したいHTML要素のidを指定する
+          width: "320",
+          height: "180",
+          videoId: videoId
+        }
+      )
+    });
+  }
 });
