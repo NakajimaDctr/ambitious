@@ -26,9 +26,19 @@
     }
   }
   &__back{
-    &__link{
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    &__btn{
       display: inline-block;
+      background-color: $color-535c68;
+      color: $color-ffffff;
+      border: none;
+      height: 50px;
+      width: 200px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 50px;
     }
-    @include submit_button($color-535c68, $color-ffffff);
   }
 }
