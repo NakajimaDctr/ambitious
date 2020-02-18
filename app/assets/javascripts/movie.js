@@ -127,11 +127,11 @@ $(function(){
 
     if($(this).val() !== ""){
       // 動画URLから動画のIDを取得
-    let url = $(this).val();
-    let id = url.match(/v=.*/)[0].substring(2,13);
+      let url = $(this).val();
+      let id = url.match(/v=.*/)[0].substring(2,13);
 
-    // 動画のIDを設定
-    player.cueVideoById({videoId: id});
+      // 動画のIDを設定
+      player.cueVideoById({videoId: id});
     }
   })
 
