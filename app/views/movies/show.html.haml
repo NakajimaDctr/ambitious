@@ -44,3 +44,11 @@
         タグ
       %td
         = @movie.tags
+  .show__back
+    = link_to root_path, class: "show__back__btn" do
+      = icon("fas", "arrow-left", class: "show__back__icon")
+      戻る
+
+    -# = button_tag type: "submit", class: "show__back__btn" do
+    -#   = icon("fas", "arrow-left", class: "show__back__btn__icon")
+    -#   戻る
