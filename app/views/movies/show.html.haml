@@ -1,12 +1,13 @@
 .show
   .show__thumbnail
-    ここにサムネイルが表示される予定
+    #thumbnail
   %table.show__table
     %tr
       %th
         動画URL
       %td{colspan: "3"}
         = @movie.url
+        %input{type: "hidden", id: "movie_url", value: @movie.url}/
     %tr
       %th
         区分
