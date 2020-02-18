@@ -139,8 +139,6 @@ $(function(){
     }
   })
 
-  
-
   // 検索結果をもとにプレイヤーを設置する
   function createPlayers(movies){
 
