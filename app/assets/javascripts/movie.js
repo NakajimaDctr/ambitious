@@ -1,5 +1,6 @@
 $(function(){
 
+  // 検索結果表示エリア
   var result = $(".result")
 
   // 検索エリアのアコーディオン
@@ -64,6 +65,7 @@ $(function(){
     result.append(html);
   }
 
+  // 非同期で動画検索
   $('.search__form input').on("change", function(){
 
     // 区分
@@ -102,9 +104,10 @@ $(function(){
       },
       dataType: "json"
     })
+
+    // 検索成功
     .done(function(movies){
       result.empty();
-
       if(movies.length != 0){
         // 検索結果１件ずつHTMLを追加
         movies.forEach(function(movie){
@@ -113,8 +116,23 @@ $(function(){
       }
     })
 
+    // 検索失敗
     .fail(function(){
       alert("検索エラー")
     })
   })
+
+  // サムネイル設定
+  $("#movie_url").on("blur", function(){
+
+    if($(this).val() !== ""){
+      // 動画URLから動画のIDを取得
+    let url = $(this).val();
+    let id = url.match(/v=.*/)[0].substring(2,13);
+
+    // 動画のIDを設定
+    player.cueVideoById({videoId: id});
+    }
+  })
+
 });
