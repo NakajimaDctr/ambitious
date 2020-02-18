@@ -71,7 +71,6 @@
             = icon("fas", "trash-alt", class: "edit__form__submits__delete__btn__delete-icon")
             削除
       .edit__form__submits__back
-        = link_to root_path, class: "edit__form__submits__back__link" do
-          = button_tag type: "input", class: "edit__form__submits__back__btn" do
-            = icon("fas", "arrow-left", class: "edit__form__submits__back__btn__icon")
-            戻る
+        = link_to root_path, class: "edit__form__submits__back__btn" do
+          = icon("fas", "arrow-left", class: "edit__form__submits__back__btn__icon")
+          戻る
