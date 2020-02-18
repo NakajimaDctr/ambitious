@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
   before_action :move_to_index, only: [:show, :edit, :update]
 
   def index
-    
   end
 
   def new
@@ -26,7 +25,6 @@ class MoviesController < ApplicationController
   end
   
   def update
-
     # 更新が完了したらindexへ遷移
     if @movie.update(movie_params)
       redirect_to root_path
@@ -37,7 +35,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-
     movie = Movie.find(params[:id])
     # 削除
     movie.destroy
@@ -61,6 +58,4 @@ class MoviesController < ApplicationController
     user_id = @movie.user.id
     redirect_to action: :index if user_id != current_user.id
   end
-
-
 end
