@@ -14,3 +14,18 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+function onYouTubeIframeAPIReady() {
+  // 縦：横 ＝ 9:16
+  player = new YT.Player('thumbnail', {
+    height: '270',
+    width: '480'
+  });
+}
