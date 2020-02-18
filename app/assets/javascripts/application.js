@@ -26,6 +26,22 @@ function onYouTubeIframeAPIReady() {
   // 縦：横 ＝ 9:16
   player = new YT.Player('thumbnail', {
     height: '270',
-    width: '480'
+    width: '480',
+    events: {
+      // プレイヤーが生成されたら、動画IDを設定する
+      'onReady': setVideoId
+    }
   });
+}
+
+// 動画IDの設定
+function setVideoId(event) {
+  if($("#movie_url").val() !== ""){
+    // 動画URLから動画のIDを取得
+    let url = $("#movie_url").val();
+    let id = url.match(/v=.*/)[0].substring(2,13);
+
+    // 動画のIDを設定
+    event.target.cueVideoById({videoId: id});
+  }
 }
