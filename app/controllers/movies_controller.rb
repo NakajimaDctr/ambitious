@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:show, :edit, :update]
 
   def index
     
@@ -55,5 +56,11 @@ class MoviesController < ApplicationController
   def set_movie
     @movie = Movie.find(params[:id])
   end
+
+  def move_to_index
+    user_id = @movie.user.id
+    redirect_to action: :index if user_id != current_user.id
+  end
+
 
 end
