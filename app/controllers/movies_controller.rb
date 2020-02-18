@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update]
 
   def index
     
@@ -21,12 +22,9 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
-    
   end
   
   def update
-    @movie = Movie.find(params[:id])
 
     # 更新が完了したらindexへ遷移
     if @movie.update(movie_params)
@@ -47,11 +45,15 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
   end
 
   private
   def movie_params
     params.require(:movie).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags).merge(user_id: current_user.id)
   end
+
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end
+
 end
