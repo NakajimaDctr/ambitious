@@ -26,20 +26,9 @@
     }
   }
   &__back{
-    width: 150px;
-    margin: 0 auto;
-    margin-top: 30px;
-    &__btn{
+    &__link{
       display: inline-block;
-      background-color: $color-535c68;
-      color: $color-ffffff;
-      border: none;
-      height: 50px;
-      width: 150px;
-      font-size: 20px;
-      text-align: center;
-      line-height: 50px;
-      margin-right: 30px;
     }
+    @include submit_button($color-535c68, $color-ffffff);
   }
 }

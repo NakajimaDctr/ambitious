@@ -45,6 +45,7 @@
       %td
         = @movie.tags
   .show__back
-    = link_to root_path, class: "show__back__btn" do
-      = icon("fas", "arrow-left", class: "show__back__icon")
-      戻る
+    = link_to root_path, class: "show__back__link" do
+      = button_tag type: "input", class: "show__back__btn" do
+        = icon("fas", "arrow-left", class: "show__back__btn__icon")
+        戻る
