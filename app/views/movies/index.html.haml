@@ -1,18 +1,21 @@
 .search
   = form_tag movies_searches_path, method: "get", class: "search__form" do
+    .search__form__title
+      = icon("fas", "search", class: "search__form__title__search-icon")
+      条件で絞り込む
     %table.search__form__table
       %tr
         %th
           区分
         %td
           = label_tag do
-            = radio_button_tag "category", "ステージ"
+            = radio_button_tag "category", "stage"
             ステージ
           = label_tag do
-            = radio_button_tag "category", "クロース"
+            = radio_button_tag "category", "close"
             クロース
           = label_tag do
-            = radio_button_tag "category", "サロン"
+            = radio_button_tag "category", "salon"
             サロン
       %tr
         %th
@@ -52,10 +55,6 @@
           タグ
         %td
           = text_field_tag :tags
-    .search__form__submit
-      = button_tag type: "submit", class: "search__form__submit__btn" do
-        = icon("fas", "search", class: "search__form__submit__btn__search-icon")
-        検索
 .accordion-search
   = icon("fas", "chevron-up")
 
