@@ -124,8 +124,8 @@ class MoviesController < ApplicationController
       category = 'ステージ'
     elsif session_params['category'] == 'close'
       category = 'クロース'
-    elsif session_params['category'] == 'salon'
-      category = 'サロン'
+    elsif session_params['category'] == 'juggling'
+      category = 'ジャグ'
     end
 
     # 演者区分の設定

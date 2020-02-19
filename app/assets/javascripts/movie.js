@@ -12,8 +12,8 @@ $(function(){
       category = "ステージ";
     }else if($('input[name="category"]:checked').val() == "close"){
       category = "クロース";
-    }else if($('input[name="category"]:checked').val() == "salon"){
-      category = "サロン";
+    }else if($('input[name="category"]:checked').val() == "juggling"){
+      category = "ジャグ";
     }
 
     // 学生/プロアマ
