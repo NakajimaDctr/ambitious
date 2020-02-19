@@ -261,4 +261,25 @@ $(function(){
       }
     };
   }
+
+  // 警告メッセージ（newとeditのヘッダーボタン・戻るボタン）
+  $(".header__app-name__index-link,"
+    + ".header__internal__user__name,"
+    + ".header__internal__user__sign-out,"
+    + ".header__add-movie__btn,"
+    + ".edit__form__submits__back__btn,"
+    + ".new__form__submits__back__btn").on("click", function(){
+
+      // 確認ダイアログを表示
+      let current = document.location.href
+      if(current.match(/\/movies\/\d+\/edit/) || current.match(/\/movies\/new/)){
+        
+        var result = confirm('編集内容をキャンセルしてもよろしいですか？');
+        if( result ) {
+          return true;
+        }else {
+          return false;
+        }
+      }
+    })
 });
