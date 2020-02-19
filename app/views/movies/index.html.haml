@@ -17,11 +17,19 @@
           = label_tag do
             = radio_button_tag "category", "juggling"
             ジャグ
+        %th
+          曲タイトル
+        %td
+          = text_field_tag :music_title
       %tr
         %th
           種目
         %td
           = text_field_tag :item
+        %th
+          アーティスト
+        %td
+          = text_field_tag :music_artist
       %tr
         %th
           学生／プロ・アマ
@@ -30,31 +38,20 @@
           =label_tag :performer_status_student, "学生"
           =check_box_tag :performer_status_proama
           =label_tag :performer_status_proama, "プロ・アマ"
-      %tr
-        %th 
-          演者名
-        %td
-          = text_field_tag :performer_name
-      %tr
-        %th
-          曲タイトル
-        %td
-          = text_field_tag :music_title
-      %tr
-        %th
-          アーティスト
-        %td
-          = text_field_tag :music_artist
-      %tr
         %th
           出演・受賞
         %td
           = text_field_tag :performed_at
       %tr
+        %th 
+          演者名
+        %td
+          = text_field_tag :performer_name
         %th
           タグ
         %td
           = text_field_tag :tags
+        
 .accordion-search
   = icon("fas", "chevron-up")
 
