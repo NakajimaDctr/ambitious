@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
   def self.search(params)
     # 検索条件の空チェック → 空でない場合のみ検索条件に追加
     # ユーザーに紐づく動画情報を取得
-    movies = self
+    movies = Movie.where(user_id: params[:user_id])
 
     # 区分
     if params[:category].present?
