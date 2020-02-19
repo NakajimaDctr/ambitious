@@ -37,16 +37,29 @@ a {
   padding-right: 15px;
   position: fixed;
 
-  // アプリ名リンク
-  &__app-name{
+  &__index-link{
     font-size: 24px;
-    &__index-link{
-      color: $color-ffffff;;
+    color: $color-ffffff;
+  }
+  &__appname{
+    display: flex;
+    &__icon{
+      font-size: 40px;
+      line-height: 70px;
+      margin-right: 5px;
+    }
+    &__name{
+      height: 70px;
+      line-height: 70px;
     }
   }
+
+  
+  
+
   &__internal{
     height: 40px;
-    width: 980px;
+    width: 940px;
     display: flex;
     justify-content: space-between;
 
@@ -80,7 +93,6 @@ a {
         font-size: 15px;
         color: $color-ffffff;
         line-height: 40px;
-        border: 2px solid $color-dfe6e9;
       }
     }
   }

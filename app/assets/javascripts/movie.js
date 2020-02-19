@@ -273,7 +273,7 @@ $(function(){
   }
 
   // 警告メッセージ（newとeditのヘッダーボタン・戻るボタン）
-  $(".header__app-name__index-link,"
+  $(".header__index-link,"
     + ".header__internal__user__name,"
     + ".header__internal__user__sign-out,"
     + ".header__add-movie__btn,"
