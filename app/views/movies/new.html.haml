@@ -5,10 +5,11 @@
 
     //エラーメッセージ表示（URL未入力の場合表示される想定）
     - if @movie.errors.any?
-      .new__errors
+      %ul.new__errors
         - @movie.errors.full_messages.each do |message|
-          = icon("fas", "exclamation-circle", class: "new__error-icon")
-          = message
+          %li.new__errors__error
+            = icon("fas", "exclamation-circle", class: "new__error-icon")
+            = message
 
     %table.new__form__table
       %tr

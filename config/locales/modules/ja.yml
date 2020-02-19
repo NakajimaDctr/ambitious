@@ -5,3 +5,4 @@ ja:
     attributes:
       movie:
         url: 動画のURL
+        category: 区分

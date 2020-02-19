@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
   # 動画URLは必須
   validates :url, presence: true
+  validates :category, presence: true
   belongs_to :user
 
   def self.search(params)

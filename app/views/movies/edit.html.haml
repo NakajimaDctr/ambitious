@@ -4,6 +4,12 @@
   = form_for @movie, { class: 'new__form' } do |f|
     
     // エラーメッセージ
+    - if @movie.errors.any?
+      %ul.new__errors
+        - @movie.errors.full_messages.each do |message|
+          %li.new__errors__error
+            = icon("fas", "exclamation-circle", class: "new__error-icon")
+            = message
 
     %table.edit__form__table
       %tr
