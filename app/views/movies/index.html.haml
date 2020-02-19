@@ -59,3 +59,16 @@
   = icon("fas", "chevron-up")
 
 .result
+  - if @movies
+    = render @movies
+
+%input{type: "hidden", id: "category_hidden", value: @last_form['category']}/
+%input{type: "hidden", id: "item_hidden", value: @last_form['item']}/
+%input{type: "hidden", id: "performer_status_student_hidden", value: @last_form['performer_status_student']}/
+%input{type: "hidden", id: "performer_status_proama_hidden", value: @last_form['performer_status_proama']}/
+%input{type: "hidden", id: "performer_name_hidden", value: @last_form['performer_name']}/
+%input{type: "hidden", id: "music_title_hidden", value: @last_form['music_title']}/
+%input{type: "hidden", id: "music_artist_hidden", value: @last_form['music_artist']}/
+%input{type: "hidden", id: "performed_at_hidden", value: @last_form['performed_at']}/
+%input{type: "hidden", id: "tags_hidden", value: @last_form['tags']}/
+
