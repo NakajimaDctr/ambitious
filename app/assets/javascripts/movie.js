@@ -3,20 +3,80 @@ $(function(){
   // 検索結果表示エリア
   var result = $(".result")
 
-  // 検索エリアのアコーディオン
-  $(".accordion-search").on("click", function(){
+  // 非同期で検索処理
+  function search_movie(){
 
-    // アイコン変更
-    if ($(".search").css('display') == 'block') {
-      // イベント発火時点で表示状態の場合、「開く」アイコンに変更
-      $(".accordion-search").html('<i class=" fas fa-bars"></i>');
-    } else {
-      // イベント発火時点で非表示状態の場合、「閉じる」アイコン
-      $(".accordion-search").html('<i class="fas fa-chevron-up"></i>');
+    // 区分
+    category = "";
+    if($('input[name="category"]:checked').val() == "stage"){
+      category = "ステージ";
+    }else if($('input[name="category"]:checked').val() == "close"){
+      category = "クロース";
+    }else if($('input[name="category"]:checked').val() == "salon"){
+      category = "サロン";
     }
-    // エリアの表示・非表示
-    $(".search").slideToggle();
-  })
+
+    // 学生/プロアマ
+    performer_status = "";
+    if($('#performer_status_student').prop("checked") == true && $('#performer_status_proama').prop("checked") == true){
+      performer_status = "";
+    }else if($('#performer_status_student').prop("checked") == true){
+      performer_status = "学生";
+    }else if($('#performer_status_proama').prop("checked") == true){
+      performer_status = "プロ・アマ"
+    }
+
+    // Ajaxの設定
+    $.ajax({
+      url: "/movies/searches",
+      type: "GET",
+      data:{ 
+        category: category,
+        item: $('#item').val(),
+        performer_status: performer_status,
+        performer_name: $('#performer_name').val(),
+        music_title: $('#music_title').val(),
+        music_artist: $('#music_artist').val(),
+        performed_at: $('#performed_at').val(),
+        tags: $('#tags').val()
+      },
+      dataType: "json"
+    })
+
+    // 検索成功
+    .done(function(movies){
+      result.empty();
+      if(movies.length != 0){
+        movies.forEach(function(movie){
+          // 動画情報のhtml作成（1件）
+          appendMovie(movie);
+
+          // 動画埋め込み処理
+
+          // DB上の動画情報のid
+          let movieId = movie.id
+          // 挿入先となるdivのid
+          let playerId = "player_" + movieId;
+          // youtubeの動画ID("v="以降の11桁)
+          let videoId = movie.url.match(/v=.*/)[0].substring(2,13);
+
+          // プレイヤーの生成（１件）
+          player = new YT.Player(
+            playerId, {
+              width: "320",
+              height: "180",
+              videoId: videoId
+            }
+          )
+        });
+      }
+    })
+
+    // 検索失敗
+    .fail(function(){
+      alert("検索エラー")
+    })
+  }
 
   // 動画情報１件分のhtml作成
   function appendMovie(movie){
@@ -66,67 +126,27 @@ $(function(){
     result.append(html);
   }
 
-  // 非同期で動画検索
-  $('.search__form input').on("change", function(){
+  // 検索エリアのアコーディオン
+  $(".accordion-search").on("click", function(){
 
-    // 区分
-    category = "";
-    if($('input[name="category"]:checked').val() == "stage"){
-      category = "ステージ";
-    }else if($('input[name="category"]:checked').val() == "close"){
-      category = "クロース";
-    }else if($('input[name="category"]:checked').val() == "salon"){
-      category = "サロン";
+    // アイコン変更
+    if ($(".search").css('display') == 'block') {
+      // イベント発火時点で表示状態の場合、「開く」アイコンに変更
+      $(".accordion-search").html('<i class=" fas fa-bars"></i>');
+    } else {
+      // イベント発火時点で非表示状態の場合、「閉じる」アイコン
+      $(".accordion-search").html('<i class="fas fa-chevron-up"></i>');
     }
-
-    // 学生/プロアマ
-    performer_status = "";
-    if($('#performer_status_student').prop("checked") == true && $('#performer_status_proama').prop("checked") == true){
-      performer_status = "";
-    }else if($('#performer_status_student').prop("checked") == true){
-      performer_status = "学生";
-    }else if($('#performer_status_proama').prop("checked") == true){
-      performer_status = "プロ・アマ"
-    }
-
-    // Ajaxの設定
-    $.ajax({
-      url: "/movies/searches",
-      type: "GET",
-      data:{ 
-        category: category,
-        item: $('#item').val(),
-        performer_status: performer_status,
-        performer_name: $('#performer_name').val(),
-        music_title: $('#music_title').val(),
-        music_artist: $('#music_artist').val(),
-        performed_at: $('#performed_at').val(),
-        tags: $('#tags').val()
-      },
-      dataType: "json"
-    })
-
-    // 検索成功
-    .done(function(movies){
-      result.empty();
-      if(movies.length != 0){
-        // 検索結果１件ずつHTMLを追加
-        movies.forEach(function(movie){
-          appendMovie(movie);
-        });
-      }
-
-      // プレイヤー設置
-      createPlayers(movies);
-    })
-
-    // 検索失敗
-    .fail(function(){
-      alert("検索エラー")
-    })
+    // エリアの表示・非表示
+    $(".search").slideToggle();
   })
 
-  // サムネイル設定
+  // 検索条件が変更されるたび動画検索する
+  $('.search__form input').on("change", function(){
+    search_movie();
+  })
+
+  // サムネイル設定（new画面,show画面,edit画面）
   $("#movie_url").on("blur", function(){
 
     if($(this).val() !== ""){
@@ -138,26 +158,4 @@ $(function(){
       player.cueVideoById({videoId: id});
     }
   })
-
-  // 検索結果をもとにプレイヤーを設置する
-  function createPlayers(movies){
-
-    movies.forEach(function(movie, i){
-      // DB上の動画情報のid
-      let movieId = movie.id
-      // 挿入先となるdivのid
-      let playerId = "player_" + movieId;
-      // youtubeの動画ID
-      let videoId = movie.url.match(/v=.*/)[0].substring(2,13);
-
-      // プレイヤーの生成（１件）
-      player = new YT.Player(
-        playerId, { // 最初の引数に挿入したいHTML要素のidを指定する
-          width: "320",
-          height: "180",
-          videoId: videoId
-        }
-      )
-    });
-  }
 });
