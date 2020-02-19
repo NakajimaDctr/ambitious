@@ -126,6 +126,16 @@ $(function(){
     result.append(html);
   }
 
+  // 確認ダイアログ表示
+  function confirm_dialog(message){
+    var result = confirm(message);
+    if( result ) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   // 検索エリアのアコーディオン
   $(".accordion-search").on("click", function(){
 
@@ -273,13 +283,22 @@ $(function(){
       // 確認ダイアログを表示
       let current = document.location.href
       if(current.match(/\/movies\/\d+\/edit/) || current.match(/\/movies\/new/)){
-        
-        var result = confirm('編集内容をキャンセルしてもよろしいですか？');
-        if( result ) {
-          return true;
-        }else {
-          return false;
-        }
+        return confirm_dialog('編集内容をキャンセルしてもよろしいですか？');
       }
+  })
+
+    // 登録確認ダイアログ
+    $(".new__form__submits__create__btn").on("click", function(){
+      return confirm_dialog('登録します。よろしいですか？');
+    })
+
+    // 更新確認ダイアログ
+    $(".edit__form__submits__update__btn").on("click", function(){
+      return confirm_dialog('更新します。よろしいですか？');
+    })
+
+    // 削除確認ダイアログ
+    $(".edit__form__submits__delete__link").on("click", function(){
+      return confirm_dialog('削除します。よろしいですか？');
     })
 });
