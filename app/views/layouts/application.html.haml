@@ -30,14 +30,18 @@
       .header__internal
         .header__internal__screen-name
           - if current_page?(root_path)
+            = icon("fas", "search")
             動画を検索する
           - elsif @movie
             - if @movie.id == nil
+              = icon("fas", "plus")
               新規登録する
             - else
               - if current_page?(edit_movie_path(@movie))
+                = icon("far", "edit")
                 動画の情報を編集・削除する
               - elsif current_page?(movie_path(@movie))
+                = icon("fas", "list")
                 動画の詳細を確認する
           
         .header__internal__user
