@@ -71,3 +71,7 @@ gem "rename"
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'devise'
+
+group :production do
+  gem 'pg'
+end
