@@ -149,6 +149,10 @@ $(function(){
     }
     // エリアの表示・非表示
     $(".search").slideToggle();
+
+    // let result_height = result.innerHeight() + 250;
+    // result.css('height', result_height);
+
   })
 
   // 検索条件が変更されるたび動画検索する
