@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: ambitious_production
-  username: ambitious
-  password: <%= ENV['ambitious_DATABASE_PASSWORD'] %>
+  database: heroku_b89401ab0178f18
+  username: b14af0a1a59ad6
+  password: <%= ENV['DATABASE_PASSWORD'] %>
