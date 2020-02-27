@@ -11,7 +11,7 @@
 
   // フォーム
   &__form{
-    @include movie_form(1000px, 250px);
+    @include movie_form(1000px, 200px);
     &__title{
       font-size: 23px;
       margin-bottom: 10px;
