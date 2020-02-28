@@ -1,0 +1,2 @@
+module Videos::SearchesHelper
+end

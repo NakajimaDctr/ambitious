@@ -1,8 +1,8 @@
 ja:
   activerecord:
     models:
-      movie: 動画情報
+      video: 動画情報
     attributes:
-      movie:
+      video:
         url: 動画のURL
         category: 区分

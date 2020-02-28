@@ -33,7 +33,7 @@
 
   // フォーム
   &__form{
-    @include movie_form(1200px, 420px);
+    @include video_form(1200px, 420px);
     
     // 入力用テーブル
     &__table{

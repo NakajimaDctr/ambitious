@@ -1,0 +1,48 @@
+.result__video
+  .result__video__thumbnail
+    %div{ id: "player_#{video.id}" }
+    
+  = link_to video_path(video.id), class: "result__video__show--link" do
+    %table.result__video__information
+      %tr
+        %th
+          区分
+        %td
+          = video.category
+        %th
+          曲タイトル
+        %td
+          = video.music_title
+      %tr
+        %th
+          種目・アイテム
+        %td
+          = video.item
+        %th
+          アーティスト
+        %td
+          = video.music_artist
+      %tr
+        %th
+          学生／プロ・アマ
+        %td
+          = video.performer_status
+        %th
+          出演・受賞
+        %td
+          = video.performed_at
+      %tr
+        %th
+          演者名
+        %td
+          = video.performer_name
+        %th
+          タグ
+        %td
+          = video.tags
+  = link_to edit_video_path(video.id), class: "result__video__edit--link" do
+    .result__video__edit-button
+      = icon("far", "edit", class: "result__video__edit-button__icon")
+      編集
+  %input{type: "hidden", id: "video_url_#{video.id}", value: video.url}/
+  %input{type: "hidden", id: "video_id_#{video.id}", value: video.id}/

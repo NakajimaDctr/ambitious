@@ -6,44 +6,44 @@
       %th
         動画URL
       %td{colspan: "3"}
-        = @movie.url
-        %input{type: "hidden", id: "movie_url", value: @movie.url}/
+        = @video.url
+        %input{type: "hidden", id: "video_url", value: @video.url}/
     %tr
       %th
         区分
       %td
-        = @movie.category
+        = @video.category
       %th
         曲タイトル
       %td
-        = @movie.music_title
+        = @video.music_title
     %tr
       %th
         種目・アイテム
       %td
-        = @movie.item
+        = @video.item
       %th
         アーティスト
       %td
-        = @movie.music_artist
+        = @video.music_artist
     %tr
       %th
         学生／プロ・アマ
       %td
-        = @movie.performer_status
+        = @video.performer_status
       %th
         出演・受賞
       %td
-        = @movie.performed_at
+        = @video.performed_at
     %tr
       %th
         演者名
       %td
-        = @movie.performer_name
+        = @video.performer_name
       %th
         タグ
       %td
-        = @movie.tags
+        = @video.tags
   .show__back
     = link_to root_path, class: "show__back__btn" do
       = icon("fas", "arrow-left", class: "show__back__btn__icon")

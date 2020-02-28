@@ -4,7 +4,7 @@ $(function(){
   var result = $(".result")
 
   // 非同期で検索処理
-  function search_movie(){
+  function search_video(){
 
     // 区分
     category = "";
@@ -28,7 +28,7 @@ $(function(){
 
     // Ajaxの設定
     $.ajax({
-      url: "/movies/searches",
+      url: "/videos/searches",
       type: "GET",
       data:{ 
         category: category,
@@ -44,28 +44,28 @@ $(function(){
     })
 
     // 検索成功
-    .done(function(movies){
+    .done(function(videos){
       result.empty();
-      if(movies.length != 0){
-        movies.forEach(function(movie){
+      if(videos.length != 0){
+        videos.forEach(function(video){
           // 動画情報のhtml作成（1件）
-          appendMovie(movie);
+          appendMovie(video);
 
           // 動画埋め込み処理
 
           // DB上の動画情報のid
-          let movieId = movie.id
+          let videoId = video.id
           // 挿入先となるdivのid
-          let playerId = "player_" + movieId;
+          let playerId = "player_" + videoId;
           // youtubeの動画ID("v="以降の11桁)
-          let videoId = movie.url.match(/v=.*/)[0].substring(2,13);
+          let youtubeId = video.url.match(/v=.*/)[0].substring(2,13);
 
           // プレイヤーの生成（１件）
           player = new YT.Player(
             playerId, {
               width: "320",
               height: "180",
-              videoId: videoId
+              videoId: youtubeId
             }
           )
         });
@@ -79,44 +79,44 @@ $(function(){
   }
 
   // 動画情報１件分のhtml作成
-  function appendMovie(movie){
+  function appendMovie(video){
     // html作成
-    var html = `<div class='result__movie'>
-                  <div class='result__movie__thumbnail'>
-                    <div id='player_${movie.id}'>
+    var html = `<div class='result__video'>
+                  <div class='result__video__thumbnail'>
+                    <div id='player_${video.id}'>
                     </div>
                   </div>
-                  <a href="/movies/${movie.id}" class='result__movie__show--link'>
-                    <table class='result__movie__information'>
+                  <a href="/videos/${video.id}" class='result__video__show--link'>
+                    <table class='result__video__information'>
                       <tr>
                         <th>区分</th>
-                        <td>${movie.category}</td>
+                        <td>${video.category}</td>
                         <th>曲タイトル</th>
-                        <td>${movie.music_title}</td>
+                        <td>${video.music_title}</td>
                       </tr>
                       <tr>
                         <th>種目・アイテム</th>
-                        <td>${movie.item}</td>
+                        <td>${video.item}</td>
                         <th>アーティスト</th>
-                        <td>${movie.music_artist}</td>
+                        <td>${video.music_artist}</td>
                       </tr>
                       <tr>
                         <th>学生／プロ・アマ</th>
-                        <td>${movie.performer_status}</td>
+                        <td>${video.performer_status}</td>
                         <th>出演・受賞</th>
-                        <td>${movie.performed_at}</td>
+                        <td>${video.performed_at}</td>
                       </tr>
                       <tr>
                         <th>演者名</th>
-                        <td> ${movie.performer_name}</td>
+                        <td> ${video.performer_name}</td>
                         <th>タグ</th>
-                        <td>${movie.tags}</td>
+                        <td>${video.tags}</td>
                       </tr>
                     </table>
                   </a>
-                  <a href="/movies/${movie.id}/edit" class='result__movie__edit--link'>
-                    <div class='result__movie__edit-button'>
-                      <i class="far fa-edit .result__movie__edit-button__icon"></i>
+                  <a href="/videos/${video.id}/edit" class='result__video__edit--link'>
+                    <div class='result__video__edit-button'>
+                      <i class="far fa-edit .result__video__edit-button__icon"></i>
                       編集
                     </div>
                   </a>
@@ -153,11 +153,11 @@ $(function(){
 
   // 検索条件が変更されるたび動画検索する
   $('.search__form input').on("change", function(){
-    search_movie();
+    search_video();
   })
 
   // サムネイル設定（new画面,show画面,edit画面）
-  $("#movie_url").on("blur", function(){
+  $("#video_url").on("blur", function(){
 
     if($(this).val() !== ""){
       // 動画URLから動画のIDを取得
@@ -170,7 +170,7 @@ $(function(){
   })
 
   // 一覧から画面遷移する場合、検索条件を取得する
-  $(document).on("click", ".header__add-movie__btn,.result__movie__show--link,.result__movie__edit--link", function(){
+  $(document).on("click", ".header__add-video__btn,.result__video__show--link,.result__video__edit--link", function(){
     
     // 現在のページがindexの場合のみ（新規登録ボタンはindex以外でも使えるため）
     if($(".search").length && $(".result").length){
@@ -245,26 +245,26 @@ $(function(){
       $("#tags").val($("#tags_hidden").val());
 
       // 検索結果を取得
-      let movies = $(".result__movie")
+      let videos = $(".result__video")
 
-      if(movies.length != 0){
-        movies.each(function(){
+      if(videos.length != 0){
+        videos.each(function(){
 
           // 動画埋め込み処理
 
           // 動画情報のid
-          let movieId = $(this).find("[id^='movie_id_']").val()
+          let videoId = $(this).find("[id^='video_id_']").val()
           // 挿入先となるdivのid
-          let playerId = "player_" + movieId;
+          let playerId = "player_" + videoId;
           // youtubeの動画ID("v="以降の11桁)
-          let videoId = $(this).find("[id^='movie_url_']").val().match(/v=.*/)[0].substring(2,13);
+          let youtubeId = $(this).find("[id^='video_url_']").val().match(/v=.*/)[0].substring(2,13);
 
           // プレイヤーの生成（１件）
           player = new YT.Player(
             playerId, {
               width: "320",
               height: "180",
-              videoId: videoId
+              videoId: youtubeId
             }
           )
         });
@@ -276,13 +276,13 @@ $(function(){
   $(".header__index-link,"
     + ".header__internal__user__name,"
     + ".header__internal__user__sign-out,"
-    + ".header__add-movie__btn,"
+    + ".header__add-video__btn,"
     + ".edit__form__submits__back__btn,"
     + ".new__form__submits__back__btn").on("click", function(){
 
       // 確認ダイアログを表示
       let current = document.location.href
-      if(current.match(/\/movies\/\d+\/edit/) || current.match(/\/movies\/new/)){
+      if(current.match(/\/videos\/\d+\/edit/) || current.match(/\/videos\/new/)){
         return confirm_dialog('編集内容をキャンセルしてもよろしいですか？');
       }
   })

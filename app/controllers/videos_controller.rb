@@ -1,5 +1,5 @@
-class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update]
+class VideosController < ApplicationController
+  before_action :set_video, only: [:show, :edit, :update]
   before_action :move_to_index, only: [:show, :edit, :update]
   before_action :set_params_to_session, only: [:new, :show, :edit]
   def index
@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
       params = create_search_params(search_params)
 
       # 検索処理
-      @movies = current_user.movies.search(params)
+      @videos = current_user.videos.search(params)
 
       # セッション削除
       reset_session
@@ -40,14 +40,14 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @video = Video.new
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    @video = Video.new(video_params)
 
     # 登録が成功したら、一覧画面へ
-    if @movie.save
+    if @video.save
       redirect_to root_path
     else
       # 失敗したら新規登録画面へ（エラー表示）
@@ -60,7 +60,7 @@ class MoviesController < ApplicationController
   
   def update
     # 更新が完了したらindexへ遷移
-    if @movie.update(movie_params)
+    if @video.update(video_params)
       redirect_to root_path
     else
       # 更新失敗したら更新画面へ遷移
@@ -69,9 +69,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    movie = Movie.find(params[:id])
+    video = Video.find(params[:id])
     # 削除
-    movie.destroy
+    video.destroy
     # indexへ遷移
     redirect_to root_path
   end
@@ -80,17 +80,17 @@ class MoviesController < ApplicationController
   end
 
   private
-  def movie_params
-    params.require(:movie).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags).merge(user_id: current_user.id)
+  def video_params
+    params.require(:video).permit(:url, :category, :item, :performer_status, :performer_name, :music_title, :music_artist, :performed_at, :tags).merge(user_id: current_user.id)
   end
 
-  def set_movie
-    @movie = Movie.find(params[:id])
+  def set_video
+    @video = Video.find(params[:id])
   end
 
   # 現在のユーザーと動画に紐づくユーザーが一致しない場合、indexへ遷移させる
   def move_to_index
-    user_id = @movie.user.id
+    user_id = @video.user.id
     redirect_to action: :index if user_id != current_user.id
   end
 

@@ -1,7 +1,7 @@
-class Movies::SearchesController < ApplicationController
+class Videos::SearchesController < ApplicationController
   def index
     params[:user_id] = current_user.id
-    @movies = current_user.movies.search(params)
+    @videos = current_user.videos.search(params)
     respond_to do |format|
       format.json
     end

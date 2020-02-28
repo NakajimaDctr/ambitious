@@ -1,8 +1,8 @@
 @import "reset";
-@import "modules/movie_index";
-@import "modules/movie_new";
-@import "modules/movie_edit";
-@import "modules/movie_show";
+@import "modules/video_index";
+@import "modules/video_new";
+@import "modules/video_edit";
+@import "modules/video_show";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -95,7 +95,7 @@ a {
   }
   
   // 登録ボタン
-  &__add-movie{
+  &__add-video{
     &__btn{
       display: inline-block;
       background-color: $color-9ca24;

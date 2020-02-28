@@ -1,5 +1,5 @@
 .search
-  = form_tag movies_searches_path, method: "get", class: "search__form" do
+  = form_tag videos_searches_path, method: "get", class: "search__form" do
     .search__form__title
       = icon("fas", "search", class: "search__form__title__search-icon")
       条件で絞り込む
@@ -56,8 +56,8 @@
   = icon("fas", "chevron-up")
 
 .result
-  - if @movies
-    = render @movies
+  - if @videos
+    = render @videos
 
 %input{type: "hidden", id: "category_hidden", value: @last_form['category']}/
 %input{type: "hidden", id: "item_hidden", value: @last_form['item']}/

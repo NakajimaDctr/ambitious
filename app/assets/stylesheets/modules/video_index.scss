@@ -11,7 +11,7 @@
 
   // フォーム
   &__form{
-    @include movie_form(1000px, 200px);
+    @include video_form(1000px, 200px);
     &__title{
       font-size: 23px;
       margin-bottom: 10px;
@@ -76,7 +76,7 @@
   }
 
   // 動画情報１件分
-  &__movie{
+  &__video{
     width: 1350px;
     display: flex;
     align-items: center;

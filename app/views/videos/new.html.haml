@@ -1,17 +1,17 @@
-.edit
-  .edit__thumbnail
+.new
+  .new__thumbnail
     #thumbnail
-  = form_for @movie, { class: 'new__form' } do |f|
-    
-    // エラーメッセージ
-    - if @movie.errors.any?
+  = form_for @video, { class: 'new__form' } do |f|
+
+    //エラーメッセージ表示（URL未入力の場合表示される想定）
+    - if @video.errors.any?
       %ul.new__errors
-        - @movie.errors.full_messages.each do |message|
+        - @video.errors.full_messages.each do |message|
           %li.new__errors__error
             = icon("fas", "exclamation-circle", class: "new__error-icon")
             = message
 
-    %table.edit__form__table
+    %table.new__form__table
       %tr
         %th
           動画URL
@@ -66,17 +66,12 @@
           タグ
         %td
           = f.text_field :tags
-    .edit__form__submits
-      .edit__form__submits__update
-        = button_tag type: "submit", class: "edit__form__submits__update__btn" do
-          = icon("fas", "retweet", class: "edit__form__submits__update__btn__update-icon")
-          更新
-      .edit__form__submits__delete
-        = link_to movie_path(@movie.id), class: "edit__form__submits__delete__link", method: :delete do
-          = button_tag type: "input", class: "edit__form__submits__delete__btn" do
-            = icon("fas", "trash-alt", class: "edit__form__submits__delete__btn__delete-icon")
-            削除
-      .edit__form__submits__back
-        = link_to root_path, class: "edit__form__submits__back__btn" do
-          = icon("fas", "arrow-left", class: "edit__form__submits__back__btn__icon")
+    .new__form__submits
+      .new__form__submits__create
+        = button_tag type: "submit", class: "new__form__submits__create__btn" do
+          = icon("fas", "plus", class: "new__form__submits__create__btn__plus-icon")
+          登録
+      .new__form__submits__back
+        = link_to root_path, class: "new__form__submits__back__btn" do
+          = icon("fas", "arrow-left", class: "new__form__submits__back__btn__icon")
           戻る

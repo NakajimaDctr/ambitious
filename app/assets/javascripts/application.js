@@ -36,9 +36,9 @@ function onYouTubeIframeAPIReady() {
 
 // 動画IDの設定
 function setVideoId(event) {
-  if($("#movie_url").val() !== ""){
+  if($("#video_url").val() !== ""){
     // 動画URLから動画のIDを取得
-    let url = $("#movie_url").val();
+    let url = $("#video_url").val();
     let id = url.match(/v=.*/)[0].substring(2,13);
 
     // 動画のIDを設定

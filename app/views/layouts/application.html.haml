@@ -33,15 +33,15 @@
           - if current_page?(root_path)
             = icon("fas", "search")
             動画を検索する
-          - elsif @movie
-            - if @movie.id == nil
+          - elsif @video
+            - if @video.id == nil
               = icon("fas", "plus")
               新規登録する
             - else
-              - if current_page?(edit_movie_path(@movie))
+              - if current_page?(edit_video_path(@video))
                 = icon("far", "edit")
                 動画の情報を編集・削除する
-              - elsif current_page?(movie_path(@movie))
+              - elsif current_page?(video_path(@video))
                 = icon("fas", "list")
                 動画の詳細を確認する
           
@@ -53,10 +53,10 @@
             = link_to destroy_user_session_path, class: "header__internal__user__sign-out", method: :delete do
               ログアウト
 
-      .header__add-movie
+      .header__add-video
         - if user_signed_in?
-          = link_to new_movie_path, class: "header__add-movie__btn" do
-            = icon("fas", "plus", class: "header__add-movie__btn__plus-icon")
+          = link_to new_video_path, class: "header__add-video__btn" do
+            = icon("fas", "plus", class: "header__add-video__btn__plus-icon")
             動画を追加
     .contents
       = yield
