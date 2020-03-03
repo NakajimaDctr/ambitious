@@ -17,7 +17,7 @@ class VideosController < ApplicationController
       params = create_search_params(search_params)
 
       # 検索処理
-      @videos = current_user.videos.search(params)
+      @videos = Video.search(params)
 
       # セッション削除
       reset_session
