@@ -59,9 +59,32 @@ GitHub, GitHub Desktop
 # 課題や今後実装したい機能
 * 非公開動画も登録できるようにする。
 * 別のユーザーに閲覧権限を付与する。
-* マイリスト一括登録機能
+* マイリスト一括登録機能（現状、1件ずつしか登録できないため。）
 * 画面描画の速度を考慮し、サムネイルクリック時のみ動画プレイヤーにする
 * CircleCIの導入
 * タグ機能
 
 # DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+### Association
+- has_many :videos
+
+## videosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|url|string|null: false|
+|category|string|null: false|
+|item|string||
+|performer_status|string||
+|performer_name|string||
+|music_title|string||
+|music_artist|string||
+|performed_at|text||
+|tags|string||
+### Association
+- belongs_to :user
