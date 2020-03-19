@@ -2,10 +2,7 @@
 
 // 新規登録画面
 .edit{
-  background-color: $color-ffffff;
-  width: 100%;
-  height: calc(100vh - 70px);
-  padding-top: 30px;
+  @include contents_area();
 
   // サムネ表示エリア
   &__thumbnail{
