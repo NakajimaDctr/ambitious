@@ -61,7 +61,7 @@ http://52.198.165.156/
 Ruby, Ruby on Rails
 
 ## フロントエンド
-Haml, Sass, JavaScript, JQuery, Ajax, YouTube Player API
+Haml, Sass, JavaScript, JQuery, Ajax
 
 ## データベース
 MySQL, SequelPro
