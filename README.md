@@ -5,7 +5,7 @@ ambitious（マジック動画管理アプリ）
 YouTubeにアップロードされているマジック動画のURLとマジック情報（演者名、種目など）を<br>セットで登録・検索できるアプリ
 
 # 本番環境
-http://52.198.165.156/
+http://ambitious-nkjm.work/
 
 ログイン情報（テスト用）
 - Eメール：test@gmail.com
